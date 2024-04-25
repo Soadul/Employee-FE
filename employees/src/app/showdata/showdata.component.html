@@ -1,0 +1,23 @@
+<div class="container" style="display: flex; flex-direction: column; align-items: center;">
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Position</th>
+      <th>Department</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let employee of employees">
+      <td>{{employee.employee_id}}</td>
+      <td>{{employee.name}}</td>
+      <td>{{employee.position}}</td>
+      <td>{{employee.department}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<button [routerLink]="['create']" style="margin-top: 15px; align-self: center;">Add Employee</button>
+<router-outlet></router-outlet>
