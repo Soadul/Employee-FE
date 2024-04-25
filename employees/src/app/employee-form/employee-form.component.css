@@ -1,0 +1,31 @@
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+
+form {
+  margin-top: 15px;
+}
+
+form label {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+form input {
+  margin-top: 5px;
+}
+
+form button {
+  margin-top: 15px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form button {
+  margin-top: 15px;
+  align-self: center;
+}
