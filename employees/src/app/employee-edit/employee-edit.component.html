@@ -1,0 +1,26 @@
+<div ngIf="employees" class="container mt-5">
+  <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+    <div class="form-group">
+      <label for="name">Edit Name:</label>
+      <input type="text" class="form-control" id="name" formControlName="name" required>
+      <div class="invalid-feedback">
+        Edit Employee's Name.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="department">Edit Department:</label>
+      <input type="text" class="form-control" id="department" formControlName="department" required>
+      <div class="invalid-feedback">
+        Edit Employee's department.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="position">Edit Position:</label>
+      <input type="text" class="form-control" id="position" formControlName="position" required>
+      <div class="invalid-feedback">
+        Edit Employee's  position.
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Edit Final</button>
+  </form>
+</div>

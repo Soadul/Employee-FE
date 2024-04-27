@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {ɵElement, ɵFormGroupValue, ɵTypedOrUntyped} from "@angular/forms";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +15,9 @@ export class AllserviceService {
     const body = { username, password };
     return this.http.post(url, body).toPromise();
   }
-  getEmployee() {
+  getEmployee(): Observable<any> {
     const url = 'http://localhost:8080/employees/get';
-    return this.http.get(url).toPromise();
+    return this.http.get(url);
   }
 
   createEmployee(employee: ɵTypedOrUntyped<{
@@ -35,4 +36,17 @@ export class AllserviceService {
     const url = 'http://localhost:8080/employees/create';
     return this.http.post(url, employee).toPromise();
   }
+
+//===============Update Method =================
+
+  // updateEmployee(id: string | null, employee: any) {
+  //     const url = `http://localhost:8080/employees/update/${id}`;
+  //     return this.http.put(url, employee).toPromise();
+  //   }
+
+  updateEmployee(id: any, employee: any): Observable<any> {
+    const url = `http://localhost:8080/employees/update/${id}`;
+    return this.http.put(url, employee);
+  }
+
 }

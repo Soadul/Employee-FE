@@ -15,12 +15,14 @@ export class ShowdataComponent implements OnInit{
 
   ngOnInit(): void {
     this.allservice.getEmployee()
-      .then(response => {
-        this.employees = Array.isArray(response) ? response : undefined;
-      })
-      .catch(error => {
-        console.error(error);
-      });
+      .subscribe(
+        (response: any[]) => {
+          this.employees = Array.isArray(response) ? response : undefined;
+        },
+        (error: any) => {
+          console.error(error);
+        }
+      );
   }
   constructor(private allservice: AllserviceService) {}
 

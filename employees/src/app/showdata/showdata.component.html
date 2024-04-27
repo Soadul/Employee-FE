@@ -11,10 +11,15 @@
     </thead>
     <tbody>
     <tr *ngFor="let employee of employees">
+
       <td>{{employee.employee_id}}</td>
       <td>{{employee.name}}</td>
       <td>{{employee.position}}</td>
       <td>{{employee.department}}</td>
+      <td>
+<!--        <a [routerLink]="['employees/:id']">Edit</a>-->
+        <a [routerLink]="['employees',employee.employee_id]">Edit</a>
+      </td>
     </tr>
     </tbody>
   </table>
