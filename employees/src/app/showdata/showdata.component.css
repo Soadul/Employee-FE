@@ -8,3 +8,9 @@ button {
   margin-top: 15px;
   align-self: center;
 }
+.link-gap {
+  margin-right: 10px;
+}
+.link-gap:hover {
+  cursor: pointer;
+}

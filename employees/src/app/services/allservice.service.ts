@@ -49,4 +49,17 @@ export class AllserviceService {
     return this.http.put(url, employee);
   }
 
+  deleteEmployee(id: any): Observable<any> {
+    const url = `http://localhost:8080/employees/delete/${id}`;
+    return this.http.delete(url);
+  }
+
+  getEmployeeById(id: any): Observable<any> {
+    const url = `http://localhost:8080/employees/${id}`;
+    return this.http.get(url);
+  }
+  downloadReport(format: string): Observable<Blob> {
+    const url = `http://localhost:8080/report/${format}`;
+    return this.http.get(url, { responseType: 'blob' });
+  }
 }

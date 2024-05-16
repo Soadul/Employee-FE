@@ -20,10 +20,24 @@ export class EmployeeEditComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private formBuilder: FormBuilder, private allservice: AllserviceService) {
   }
-
   ngOnInit() {
-    // @ts-ignore
-    this.employeeId = this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
+    this.allservice.getEmployeeById(id)
+      .subscribe(
+        (employee: any) => {
+
+          this.employeeForm = this.formBuilder.group({
+            name: [employee.name],
+            position: [employee.position],
+            department: [employee.department]
+            // Add other form controls here
+          });
+
+        },
+        (error: any) => {
+          console.error(error);
+        }
+      );
   }
 
   onSubmit() {

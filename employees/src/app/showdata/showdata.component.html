@@ -17,12 +17,23 @@
       <td>{{employee.position}}</td>
       <td>{{employee.department}}</td>
       <td>
-<!--        <a [routerLink]="['employees/:id']">Edit</a>-->
-        <a [routerLink]="['employees',employee.employee_id]">Edit</a>
+        <a class="link-gap" [routerLink]="['employees',employee.employee_id]">Edit</a>
+        <a class="link-gap" (click)="deleteEmployee(employee.employee_id)">Delete</a>
+
       </td>
     </tr>
     </tbody>
   </table>
 </div>
 <button [routerLink]="['create']" style="margin-top: 15px; align-self: center;">Add Employee</button>
+
+
+<br>
+<select [(ngModel)]="selectedFormat">
+  <option value="pdf">PDF</option>
+  <option value="html">HTML</option>
+</select>
+
+<button (click)="downloadReport()">Download Report</button>
+<br>
 <router-outlet></router-outlet>
